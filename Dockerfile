@@ -2,7 +2,7 @@
 FROM node:18
 
 # Cria diretório de trabalho
-WORKDIR /app
+WORKDIR /api
 
 # Copia os arquivos do projeto
 COPY package*.json ./
