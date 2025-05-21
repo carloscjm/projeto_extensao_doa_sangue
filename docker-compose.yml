@@ -18,7 +18,7 @@ services:
       DB_HOST: mysql
       DB_USER: root
       DB_PASSWORD: root
-      DB_NAME: meu_banco
+      DB_NAME: projeto_extensao
     networks:
       - minha-rede
 
@@ -27,7 +27,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: meu_banco
+      MYSQL_DATABASE: projeto_extensao
     ports:
       - "3306:3306"
     volumes:
