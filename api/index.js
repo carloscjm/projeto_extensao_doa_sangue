@@ -5,25 +5,31 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Serve a pasta assets (com caminho correto)
-app.use('/assets', express.static(path.join(__dirname, '..', 'assets')));
-// Serve TODOS os arquivos estáticos da raiz (index.html, login.html, outros .html)
-app.use(express.static(path.join(__dirname, '..')));
+app.use(cors());
+app.use(express.json());
 
-// Rota para servir o index.html na /inicio
-app.get('/inicio', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'index.html'));
+// Serve assets da pasta raiz (fora da pasta /api)
+app.use('/assets', express.static(path.join(__dirname, '..', 'assets')));
+app.use(express.static(path.join(__dirname, '..'))); // Para servir todos os .html, etc.
+
+// Rota principal padrão "/"
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'index.html'));
 });
 
-const contatoRoutes = require('./routes/usuario');
-const clienteRoutes = require('./routes/demanda');
+// Rota opcional /inicio
+app.get('/inicio', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'index.html'));
+});
 
-app.use(cors());
-app.use(express.json()); // Para receber JSON no body das requisições
+// rotas da API
+const contatoRoutesUsuario = require('./routes/usuario');
+const clienteRoutesDemanda = require('./routes/demanda');
+const clienteRoutesLogin = require('./routes/login');
 
-// Rotas organizadas
-app.use('/usuario', contatoRoutes);
-app.use('/demanda', clienteRoutes);
+app.use('/usuario', contatoRoutesUsuario);
+app.use('/demanda', clienteRoutesDemanda);
+app.use('/login', clienteRoutesLogin);
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);

@@ -59,15 +59,16 @@ CREATE TABLE IF NOT EXISTS `demanda` (
 -- Copiando dados para a tabela projeto_extensao.demanda: ~0 rows (aproximadamente)
 
 -- Copiando estrutura para tabela projeto_extensao.usuario
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `peso` decimal(5,2) DEFAULT NULL,
-  `idade` int(11) DEFAULT NULL,
-  `tipo_sanguineo` varchar(5) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `usuario` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`nome` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`email` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`peso` DECIMAL(5,2) NULL DEFAULT NULL,
+	`idade` INT(10) NULL DEFAULT NULL,
+	`tipo_sanguineo` VARCHAR(5) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`senha` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	PRIMARY KEY (`id`) USING BTREE
+) COLLATE='utf8mb3_unicode_ci'ENGINE=InnoDB;
 
 -- Copiando dados para a tabela projeto_extensao.usuario: ~0 rows (aproximadamente)
 

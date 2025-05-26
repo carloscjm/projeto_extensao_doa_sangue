@@ -1,12 +1,16 @@
 FROM node:18
 
-WORKDIR /app
+WORKDIR /app/api
 
-COPY package*.json ./
+COPY api/package*.json ./
 RUN npm install
 RUN npm install -g nodemon
 
+WORKDIR /app
+
 COPY . .
+
+WORKDIR /app/api
 
 EXPOSE 3000
 

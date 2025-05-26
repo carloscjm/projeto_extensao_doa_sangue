@@ -3,12 +3,12 @@ version: '3.8'
 services:
   api:
     build:
-      context: ./api
-      dockerfile: ../Dockerfile  # Volta um nível para encontrar o Dockerfile
-    working_dir: /app
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /app/api
     volumes:
-      - ./api:/app
-      - /app/node_modules
+      - ./api:/app/api
+      - /app/api/node_modules
     ports:
       - "3000:3000"
     command: npm run dev
