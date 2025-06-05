@@ -111,6 +111,13 @@ header {
     margin-bottom: 15px;
 }
 
+.news-card p {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+}
+
 .read-more {
     color: #e74c3c;
     text-decoration: none;
