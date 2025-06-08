@@ -9,21 +9,18 @@
     <link rel="icon" type="image/png" href="assets/img/logo-sus.webp">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <img src="assets/img/logo-sus.webp" alt="Logo" class="logo">
-                <div class="nav-links">
-                    <a href="index.html">Início</a>
-                    <a href="noticias.html">Notícias</a>
-                    <a href="quem_somos.html">Quem Somos</a>
-                    <a href="como_doar.html">Como Doar</a>
-                    <a href="cadastro.html">Cadastro</a>
-                    <a href="login.html">Login</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+        <div id="cabecalho-placeholder"></div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                fetch('/header.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('cabecalho-placeholder').innerHTML = data;
+                        // Dispara um evento personalizado para avisar que o cabeçalho foi carregado
+                        document.dispatchEvent(new Event('cabecalhoCarregado'));
+                    });
+            });
+        </script>
 
         <div class="hero" style="text-shadow: 2px 2px 4px rgb(0 0 0); ">
             <img src="assets/img/em_construcao.png" alt="">
@@ -33,5 +30,6 @@
     <footer>
         &copy; 2025 - Todos os direitos reservados | Contato: suporte@exemplo.com
     </footer>
+    <script src="/assets/js/cabecalho.js" defer></script>
 </body>
 </html>

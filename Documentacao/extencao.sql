@@ -20,16 +20,20 @@ CREATE DATABASE IF NOT EXISTS `projeto_extensao` /*!40100 DEFAULT CHARACTER SET 
 USE `projeto_extensao`;
 
 -- Copiando estrutura para tabela projeto_extensao.centro
-CREATE TABLE IF NOT EXISTS `centro` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `rua` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `numero` int(11) DEFAULT NULL,
-  `bairro` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cidade` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `estado` varchar(2) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `centro` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`nome` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`rua` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`numero` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`bairro` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`cidade` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`estado` VARCHAR(2) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`telefone` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	PRIMARY KEY (`id`) USING BTREE
+)
+COLLATE='utf8mb3_unicode_ci'
+ENGINE=InnoDB
+;
 
 -- Copiando dados para a tabela projeto_extensao.centro: ~0 rows (aproximadamente)
 
@@ -46,15 +50,22 @@ CREATE TABLE IF NOT EXISTS `centro_usuario` (
 -- Copiando dados para a tabela projeto_extensao.centro_usuario: ~0 rows (aproximadamente)
 
 -- Copiando estrutura para tabela projeto_extensao.demanda
-CREATE TABLE IF NOT EXISTS `demanda` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `centro` int(11) DEFAULT NULL,
-  `usuario` int(11) DEFAULT NULL,
-  `descricao` longtext COLLATE utf8_unicode_ci DEFAULT NULL,
-  `tipo_sangue` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+CREATE TABLE `demanda` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`centro` INT(10) NULL DEFAULT NULL,
+	`usuario` INT(10) NULL DEFAULT NULL,
+	`titulo` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`descricao` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`requisitos` LONGTEXT NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`tipo_sangue` VARCHAR(20) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`urgencia` ENUM('Nivel Estavel','Urgente','Estoque Baixo') NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`horario` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	PRIMARY KEY (`id`) USING BTREE,
+	INDEX `id` (`id`) USING BTREE
+)
+COLLATE='utf8mb3_unicode_ci'
+ENGINE=InnoDB
+;
 
 -- Copiando dados para a tabela projeto_extensao.demanda: ~0 rows (aproximadamente)
 
@@ -67,6 +78,7 @@ CREATE TABLE `usuario` (
 	`idade` INT(10) NULL DEFAULT NULL,
 	`tipo_sanguineo` VARCHAR(5) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
 	`senha` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
+	`tipo` ENUM('Clinica','Doador') NULL DEFAULT NULL COLLATE 'utf8mb3_unicode_ci',
 	PRIMARY KEY (`id`) USING BTREE
 )
 COLLATE='utf8mb3_unicode_ci'

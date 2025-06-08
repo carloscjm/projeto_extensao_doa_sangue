@@ -6,6 +6,7 @@
 }
 
 body {
+    margin-top: 100px;
     background: url('background.jpg') no-repeat center center/cover;
     color: white;
 }
@@ -112,4 +113,104 @@ footer {
     color: white;
     text-align: center;
     padding: 15px 0;
+}
+
+
+
+/* O contêiner que nos permite posicionar a seta customizada */
+    .custom-select-wrapper {
+        position: relative;
+        display: inline-block; /* Ou 'block' se quiser que ocupe a linha inteira */
+        width: 100%; /* Faz o wrapper ter a largura do seu contêiner pai */
+        margin-bottom: 25px;
+    }
+
+    /* A estilização principal do campo <select> */
+    .custom-select {
+        /* Escondendo a aparência padrão do navegador */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        
+        /* Estilos de borda, cor e fonte */
+        width: 100%;
+        cursor: pointer;
+        padding: 12px 40px 12px 15px; /* Padding: Cima, Direita (para seta), Baixo, Esquerda */
+        font-size: 1rem;
+        font-family: 'Poppins', sans-serif; /* Mantendo a consistência */
+        color: #333;
+        background-color: #fff;
+        
+        /* As bordas vermelhas e arredondadas que você pediu */
+        border: 2px solid #d9534f; /* Tom de vermelho do nosso tema */
+        border-radius: 12px; /* Cantos bem arredondados */
+
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Estilo para quando o select está focado (clicado ou via tab) */
+    .custom-select:focus {
+        outline: none; /* Remove a borda de foco padrão e feia do navegador */
+        border-color: #a94442; /* Um vermelho um pouco mais escuro para o foco */
+        box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.25); /* Efeito de brilho suave */
+    }
+
+    /* A seta customizada, criada com um pseudo-elemento ::after no wrapper */
+    .custom-select-wrapper::after {
+        content: '';
+        position: absolute;
+        top: 67%;
+        right: 15px;
+        
+        /* Isso transforma o elemento em um triângulo (seta para baixo) */
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 8px solid #d9534f; /* A cor da seta */
+        
+        transform: translateY(-50%);
+        pointer-events: none; /* Garante que o clique na seta ainda abra o select */
+        transition: all 0.2s ease;
+    }
+
+    /* Opcional: Gira a seta quando o select está focado */
+    .custom-select:focus + .custom-select-wrapper::after {
+        transform: translateY(-50%) rotate(180deg);
+    }
+
+
+
+    /* A estilização principal do campo <textarea> */
+.custom-textarea {
+    /* Aparência e Dimensionamento */
+    width: 100%;
+    min-height: 120px; /* Altura mínima inicial */
+    resize: vertical; /* Permite que o usuário redimensione APENAS na vertical */
+
+    /* Estilos de borda, cor e fonte (consistente com o select) */
+    padding: 12px 15px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #fff;
+    
+    /* As bordas vermelhas e arredondadas */
+    border: 2px solid #d9534f;
+    border-radius: 12px;
+
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Estilo para o texto do placeholder */
+.custom-textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Estilo para quando o textarea está focado */
+.custom-textarea:focus {
+    outline: none; /* Remove a borda de foco padrão */
+    border-color: #a94442; /* Mesmo vermelho mais escuro do select */
+    box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.25); /* Mesmo brilho suave */
 }

@@ -38,7 +38,7 @@ router.post('/retorna_usuario', validaToken, async (req, res) => {
   }
 });
 
-router.post('/cadastra_usuario', validaToken, async (req, res) => {
+router.post('/cadastra_usuario', validaToken, async (req, res) => { 
   console.log('teste ', req.body);
   if (!req.body) {
     res.status(500).json({ error: 'Erro ao buscar usuários' });
@@ -49,6 +49,8 @@ router.post('/cadastra_usuario', validaToken, async (req, res) => {
       return res.status(500).json({ error: 'Ja existe um usuario com esse email' });
     }
     let body = req.body;
+    let senha = body.senha; 
+    senha = senha.toString();
     const hash = crypto.createHash('md5').update(body.senha).digest('hex');
     await pool.query(`insert into usuario (senha, nome, email) VALUES ("`+hash+`", "`+body.nome+`", "`+body.email+`")`);
     res.json('Usuario inserido');

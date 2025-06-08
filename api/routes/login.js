@@ -22,6 +22,9 @@ router.post('/login', async (req, res) => {
     const jwt = require('jsonwebtoken');
 
     if (rows.length > 0) {
+        let id_usr = rows[0].id;
+        let tipo_usr = rows[0].tipo;
+
         // Dados a codificar no token
         const payload = {
             id: rows.id,
@@ -39,7 +42,7 @@ router.post('/login', async (req, res) => {
 
         // Geração do token
         const token = jwt.sign(payload, segredo, options);
-        res.json(token);
+        res.json({"id_usr":id_usr, "tipo":tipo_usr, "jwt": token}); 
     } else {
         res.json('Email e senha nao encontrados');
     }
@@ -47,6 +50,6 @@ router.post('/login', async (req, res) => {
     console.error(error);
     res.status(500).json({ error: 'Erro ao buscar usuários' });
   }
-});
+}); 
 
 module.exports = router;

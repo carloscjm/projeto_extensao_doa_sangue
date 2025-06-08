@@ -10,26 +10,23 @@
     <link rel="icon" type="image/png" href="assets/img/logo-sus.webp">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="nav-container">
-                <img src="assets/img/logo-sus.webp" alt="Logo" class="logo">
-                <div class="nav-links">
-                    <a href="index.html">Início</a>
-                    <a href="noticias.html">Notícias</a>
-                    <a href="quem_somos.html">Quem Somos</a>
-                    <a href="como_doar.html">Como Doar</a>
-                    <a href="cadastro.html">Cadastro</a>
-                    <a href="login.html">Login</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <div id="cabecalho-placeholder"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('cabecalho-placeholder').innerHTML = data;
+                    // Dispara um evento personalizado para avisar que o cabeçalho foi carregado
+                    document.dispatchEvent(new Event('cabecalhoCarregado'));
+                });
+        });
+    </script>
 
     <div class="container">
         <div class="login-container">
             <h2>Faça o login na sua conta!</h2>
-            <form>
+            <form id="loginForm">
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" placeholder="Digite seu e-mail">
                 
@@ -45,5 +42,63 @@
     <footer>
         &copy; 2025 - Todos os direitos reservados | Contato: suporte@exemplo.com
     </footer>
+
+    <script >
+        // Seleciona o formulário pelo ID
+        const form = document.getElementById('loginForm');
+
+        // Adiciona um "escutador" para o evento de 'submit' (envio) do formulário
+        form.addEventListener('submit', async (event) => {
+            // 1. Previne o comportamento padrão do formulário, que é recarregar a página.
+            event.preventDefault();
+
+            // 2. Coleta os dados dos campos do formulário
+            const dados = {
+                email: document.getElementById('email').value,
+                senha: document.getElementById('password').value,
+            };
+
+            // 3. Envia os dados para a API usando fetch
+            try {
+                // ATENÇÃO: Altere '/usuarios' para a rota correta da sua API de cadastro
+                const response = await fetch('http://localhost:3000/login/login', {
+                    method: 'POST', // Método HTTP para criar um novo recurso
+                    headers: {
+                        'Content-Type': 'application/json' // Informa que o corpo da requisição é um JSON
+                    },
+                    body: JSON.stringify(dados) // Converte o objeto JavaScript para uma string JSON
+                });
+
+                // Transforma a resposta do servidor em JSON
+                const resultado = await response.json();
+
+
+                console.log('resultaaaaado',  resultado);
+                // 4. Trata a resposta do servidor
+                if (response.ok) {
+                    // Se a resposta foi bem-sucedida (status 2xx)
+                    // mensagemDiv.textContent = 'Cadastro realizado com sucesso!';
+                    // mensagemDiv.style.color = 'green';
+                    localStorage.setItem('jwt', resultado.jwt);
+                    localStorage.setItem('usr_id', resultado.id_usr);
+                    localStorage.setItem('tipo', resultado.tipo);
+                    form.reset(); // Limpa o formulário
+                    window.location.replace("http://localhost:3000/index.html");
+                } else {
+                    // Se o servidor retornou um erro (status 4xx ou 5xx)
+                    // Mostra a mensagem de erro que veio da API, se houver
+                    // mensagemDiv.textContent = `Erro: ${resultado.message || 'Não foi possível cadastrar.'}`;
+                    // mensagemDiv.style.color = 'red';
+                }
+
+            } catch (error) {
+                // Trata erros de rede (ex: API offline)
+                console.log('Erro na requisição:', error);
+                // mensagemDiv.textContent = 'Erro de conexão com o servidor. Tente novamente.';
+                // mensagemDiv.style.color = 'red';
+            }
+        });
+    </script>
+    <script src="/assets/js/cabecalho.js" defer></script>
 </body>
 </html>

@@ -25,32 +25,45 @@
 
     <div class="container">
         <div class="login-container">
-            <h2>Cadastre um novo Usuário</h2>
+            <h2>Faça seu Cadastro</h2>
             <form id="cadastroForm">
-                <label for="nome">Nome:</label>
-                <input type="nome" id="nome" placeholder="Digite seu Nome">
-                
-                <label for="cpf">CPF:</label>
-                <input type="cpf" id="cpf" placeholder="Digite seu Cpf">
-
-                <label for="peso">Peso:</label>
-                <input type="peso" id="peso" placeholder="Digite seu Peso">
-
-                <label for="idade">Idade:</label>
-                <input type="idade" id="idade" placeholder="Digite sua Idade">
-
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" placeholder="Digite seu e-mail">
-                
-                <label for="password">Senha:</label>
-                <input type="password" id="password" placeholder="Digite sua senha">
-
                 <div class="custom-select-wrapper">
                     <label for="centro">Hemocentro:</label>
                     <select id="opcaocentro" class="custom-select">
-                    <option value="">--Por favor, escolha uma opção--</option>
+                        <option value="">--Por favor, escolha uma opção--</option>
                     </select>
                 </div>
+
+                <label for="descricao">Descrição:</label>
+                <textarea type="text" id="descricao" class="custom-textarea" placeholder="Digite uma descrição"></textarea>
+
+                <!-- <label for="tipo">Tipo de Sangue:</label>
+                <input type="tipo" id="tipo" placeholder="Digite o Tipo de Sangue"> -->
+
+                <div class="custom-select-wrapper">
+                    <label for="tipo">Tipo de Sangue:</label>
+                    <select id="tipo" class="custom-select">
+                        <option value="todos">Todos os Tipos</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+
+                <div class="custom-select-wrapper">
+                    <label for="urgencia">Hemocentro:</label>
+                    <select id="urgenciaopcao" class="custom-select">
+                        <option value="Nivel Estavel">Nivel Estavel</option>
+                        <option value="Urgente">Urgente</option>
+                        <option value="Estoque Baixo">Estoque Baixo</option>
+                    </select>
+                </div>
+                
                 <button type="submit">Cadastrar</button>
             </form>
         </div>
@@ -82,7 +95,7 @@
                 };
 
                 // ATENÇÃO: Altere '/usuarios' para a rota correta da sua API de cadastro
-                const response = await fetch('http://localhost:3000/demanda/pega_centro_lista_cadastro', {
+                const response = await fetch('http://localhost:3000/demanda/pega_centro_lista', {
                     method: 'POST', // Método HTTP para criar um novo recurso
                     headers: headers,
                     body: JSON.stringify(dados) // Converte o objeto JavaScript para uma string JSON
@@ -99,7 +112,7 @@
                 // Usamos .map para transformar cada objeto de demanda em uma string HTML
                 // e .join('') para juntar todas as strings em uma só.
                 const cardsHTML = resultado.map(demanda => `
-                    <option value="${demanda.id}">${demanda.nome}</option>
+                    <option value="${demanda.id}">${demanda.centro_nome}</option>
                 `).join('');
                 // 4. INSERE o HTML gerado no contêiner de uma só vez (mais performático)
                 gridContainer.innerHTML = cardsHTML;
@@ -110,6 +123,7 @@
                 mensagemDiv.style.color = 'red';
             }
         });
+
 
         // Seleciona o formulário pelo ID
         const form = document.getElementById('cadastroForm');
@@ -122,12 +136,11 @@
 
             // 2. Coleta os dados dos campos do formulário
             const dados = {
-                "nome": document.getElementById('nome').value,
-                "cpf": document.getElementById('cpf').value,
-                "peso": parseFloat(document.getElementById('peso').value),
-                "idade": parseInt(document.getElementById('idade').value),
-                "email": document.getElementById('email').value,
-                "senha": document.getElementById('password').value
+                "centro": parseFloat(document.getElementById('opcaocentro').value),
+                "usuario": parseFloat(localStorage.getItem('usr_id')),
+                "descricao": document.getElementById('descricao').value,
+                "tipo_sangue": document.getElementById('tipo').value,
+                "urgencia": document.getElementById('urgenciaopcao').value
             };
             
             // 3. Envia os dados para a API usando fetch
@@ -141,8 +154,8 @@
                     console.warn("Nenhum token encontrado. A requisição será feita sem autenticação.");
                     // Dependendo da sua regra de negócio, você pode querer impedir a requisição aqui.
                 }
-                // ATENÇÃO: Altere '/usuarios' para a rota correta da sua API de cadastro
-                const response = await fetch('http://localhost:3000/usuario/cadastra_usuario', {
+                
+                const response = await fetch('http://localhost:3000/demanda/cadastra_demanda', {
                     method: 'POST', // Método HTTP para criar um novo recurso
                     headers: headers,
                     body: JSON.stringify(dados) // Converte o objeto JavaScript para uma string JSON
@@ -150,9 +163,8 @@
 
                 // Transforma a resposta do servidor em JSON
                 const resultado = await response.json();
-
-
                 console.log('resultaaaaado',  resultado);
+
                 // 4. Trata a resposta do servidor
                 if (response.ok) {
                     // Se a resposta foi bem-sucedida (status 2xx)
