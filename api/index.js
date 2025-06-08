@@ -3,7 +3,8 @@ const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const HOST = '0.0.0.0';
 
 app.use(cors());
 app.use(express.json());
@@ -31,6 +32,6 @@ app.use('/usuario', contatoRoutesUsuario);
 app.use('/demanda', clienteRoutesDemanda);
 app.use('/login', clienteRoutesLogin);
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+app.listen(PORT, HOST, () => {
+  console.log(`Servidor ouvindo na porta ${PORT} e no host ${HOST}`);
 });
