@@ -10,7 +10,7 @@ WORKDIR /app
 
 COPY api/package.json api/package-lock.json ./
 
-WORKDIR /app/api
+COPY app/. .
 
 EXPOSE 3000
 
