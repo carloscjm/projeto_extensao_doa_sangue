@@ -95,7 +95,7 @@
                 };
 
                 // ATENÇÃO: Altere '/usuarios' para a rota correta da sua API de cadastro
-                const response = await fetch('http://localhost:3000/demanda/pega_centro_lista', {
+                const response = await fetch(getApiUrl()+'/demanda/pega_centro_lista', {
                     method: 'POST', // Método HTTP para criar um novo recurso
                     headers: headers,
                     body: JSON.stringify(dados) // Converte o objeto JavaScript para uma string JSON
@@ -155,7 +155,7 @@
                     // Dependendo da sua regra de negócio, você pode querer impedir a requisição aqui.
                 }
                 
-                const response = await fetch('http://localhost:3000/demanda/cadastra_demanda', {
+                const response = await fetch(getApiUrl()+'/demanda/cadastra_demanda', {
                     method: 'POST', // Método HTTP para criar um novo recurso
                     headers: headers,
                     body: JSON.stringify(dados) // Converte o objeto JavaScript para uma string JSON

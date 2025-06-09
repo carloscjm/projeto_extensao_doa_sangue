@@ -1,3 +1,17 @@
+// Função auxiliar para obter a URL correta da API
+function getApiUrl() {
+    const hostname = window.location.hostname;
+
+    // Se o hostname for 'localhost' ou '127.0.0.1', estamos em desenvolvimento
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+        return 'http://localhost:3000'; // URL de Desenvolvimento
+    } else {
+        // Caso contrário, estamos em produção
+        // IMPORTANTE: Coloque a URL da sua API na Fly.io aqui
+        return 'https://projeto-extensao-doa-sangue.fly.dev'; // URL de Produção
+    }
+}
+
 // Lógica que estava dentro do cabeçalho.html
 console.log("Script do cabeçalho executado!");
 

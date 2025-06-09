@@ -61,7 +61,7 @@
             // 3. Envia os dados para a API usando fetch
             try {
                 // ATENÇÃO: Altere '/usuarios' para a rota correta da sua API de cadastro
-                const response = await fetch('http://localhost:3000/login/login', {
+                const response = await fetch(getApiUrl()+'/login/login', {
                     method: 'POST', // Método HTTP para criar um novo recurso
                     headers: {
                         'Content-Type': 'application/json' // Informa que o corpo da requisição é um JSON
@@ -83,7 +83,7 @@
                     localStorage.setItem('usr_id', resultado.id_usr);
                     localStorage.setItem('tipo', resultado.tipo);
                     form.reset(); // Limpa o formulário
-                    window.location.replace("http://localhost:3000/index.html");
+                    window.location.replace(getApiUrl()+"/index.html");
                 } else {
                     // Se o servidor retornou um erro (status 4xx ou 5xx)
                     // Mostra a mensagem de erro que veio da API, se houver

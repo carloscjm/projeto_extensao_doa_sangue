@@ -19,6 +19,7 @@ services:
       DB_USER: root
       DB_PASSWORD: root
       DB_NAME: projeto_extensao
+      BASE_URL: http://localhost:3000
     networks:
       - minha-rede
 
