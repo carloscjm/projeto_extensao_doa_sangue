@@ -22,10 +22,9 @@ console.log('logado: ', logado);
         if (logado) {
             document.getElementById('opcao-login').style.display = 'none';
             document.getElementById('opcao-cadastro').style.display = 'none';
-            console.log("Cabeçalho carregado, executando script do cabeçalho agora.");
             
             const userButton = document.getElementById('userMenu');
-            const userSubmenu = document.getElementById('profileButton');
+            const userSubmenu = document.getElementById('profileSubmenu');
 
             if (userButton && userSubmenu) {
                 userButton.addEventListener('click', (event) => {
@@ -39,10 +38,16 @@ console.log('logado: ', logado);
                         userSubmenu.classList.remove('active');
                     }
                 });
+
+                userSubmenu.addEventListener('click', (event) => {
+                    localStorage.clear();
+                    window.location.reload()
+                });
             } else {
                 console.error("Não foi possível encontrar os elementos do menu do cabeçalho.");
             }
         } else {
              document.getElementById('userMenu').style.display = 'none';
+             document.getElementById('demanda_header').style.display = 'none';
         }
     });

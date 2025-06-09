@@ -6,7 +6,7 @@
             <div class="nav-links">
                 <a href="index.html">Início</a>
                 <a href="noticias.html">Notícias</a>
-                <a href="demandas.html">Demandas</a>
+                <a id="demanda_header" href="demandas.html">Demandas</a>
                 <a href="como_doar.html">Como Doar</a>
                 <a id="opcao-cadastro" href="cadastro.html">Cadastro</a>
                 <a id="opcao-login" href="login.html">Login</a>
@@ -20,39 +20,39 @@
 
         <ul class="submenu" id="profileSubmenu">
             <li class="submenu-item">
-                <a href="/logout">Logout</a>
+                <a href="#">Logout</a>
             </li>
-            </ul>
+        </ul>
     </div>
 </header>
 
 
 <script>
-    // let logado = localStorage.getItem('jwt');
-    // console.log('logado: ', logado);
-    // if (logado) {
-    //     // Seleciona os elementos HTML necessários
-    //     const userMenu = document.getElementById('userMenu');
-    //     const profileButton = document.getElementById('profileButton');
-    //     const profileSubmenu = document.getElementById('profileSubmenu');
+    let logado = localStorage.getItem('jwt');
+    console.log('logado: ', logado);
+    if (logado) {
+        // Seleciona os elementos HTML necessários
+        const userMenu = document.getElementById('userMenu');
+        const profileButton = document.getElementById('profileButton');
+        const profileSubmenu = document.getElementById('profileSubmenu');
 
-    //     // Adiciona um evento de clique no botão do perfil
-    //     profileButton.addEventListener('click', (event) => {
-    //         // Impede que o clique no botão feche o menu imediatamente (ver evento do 'document')
-    //         event.stopPropagation(); 
+        // Adiciona um evento de clique no botão do perfil
+        profileButton.addEventListener('click', (event) => {
+            // Impede que o clique no botão feche o menu imediatamente (ver evento do 'document')
+            event.stopPropagation(); 
             
-    //         // Adiciona ou remove a classe 'active' para mostrar/esconder o submenu
-    //         profileSubmenu.classList.toggle('active');
-    //     });
+            // Adiciona ou remove a classe 'active' para mostrar/esconder o submenu
+            profileSubmenu.classList.toggle('active');
+        });
 
-    //     // Adiciona um evento de clique no documento inteiro para fechar o menu
-    //     // se o usuário clicar fora dele.
-    //     document.addEventListener('click', () => {
-    //         if (profileSubmenu.classList.contains('active')) {
-    //             profileSubmenu.classList.remove('active');
-    //         }
-    //     });
-    // }
+        // Adiciona um evento de clique no documento inteiro para fechar o menu
+        // se o usuário clicar fora dele.
+        document.addEventListener('click', () => {
+            if (profileSubmenu.classList.contains('active')) {
+                profileSubmenu.classList.remove('active');
+            }
+        });
+    }
 </script>
 
 

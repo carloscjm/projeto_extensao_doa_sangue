@@ -78,6 +78,21 @@ Sinta-se à vontade para abrir issues ou contribuir com melhorias, novos recurso
 
 > Doe sangue, doe vida. Seu gesto pode ser a esperança de alguém.  
 
+
+
+## 🚀 Intruções para rodar o projeto
+
+Primeiramente devera ser instalado o docker, caso use Windows, devera ter o Docker Desktop instalado.
+apos a instalação do docker, basta abrir o terminal e digitar docker-compose up --build, e esperar o docker baixar as dependencias,
+
+Apos os conteiners estarem rodando, abra a url http://localhost:3000/ no seu navegador de preferencia.
+
+Obs: Para teste o sistema ja vem com um usuário pre cadastrado admin@admin.com, senha 123.
+
+---
+
+
+
  
  
  

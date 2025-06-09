@@ -165,6 +165,9 @@ CREATE TABLE IF NOT EXISTS `demanda` (
   KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
+INSERT INTO `demanda` (`id`, `centro`, `usuario`, `titulo`, `descricao`, `requisitos`, `tipo_sangue`, `urgencia`, `horario`) VALUES (6, 2, 1, NULL, 'Nosso banco de sangue para o tipo **O Negativo**, o doador universal, atingiu um nível crítico devido a um aumento inesperado no número de cirurgias de emergência nesta semana. Este tipo sanguíneo é vital em situações críticas, pois pode ser transfundido para qualquer paciente, independentemente do seu tipo sanguíneo.Sua doação pode ser a diferença entre a vida e a morte para alguém que chegou em nosso hospital precisando de uma intervenção imediata.', 'Ter entre 16 e 69 anos, pesar mais de 50kg e estar em boas condições de saúde.', 'O+', 'Urgente', 'Seg a Sex, das 8h às 16h');
+
+
 -- Copiando dados para a tabela projeto_extensao.demanda: ~0 rows (aproximadamente)
 
 -- Copiando estrutura para tabela projeto_extensao.usuario
@@ -182,7 +185,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 -- Copiando dados para a tabela projeto_extensao.usuario: ~1 rows (aproximadamente)
 INSERT INTO `usuario` (`id`, `nome`, `email`, `peso`, `idade`, `tipo_sanguineo`, `senha`, `tipo`) VALUES
-	(1, 'carlos', 'carloscjm9@gmail.com', NULL, NULL, NULL, '202cb962ac59075b964b07152d234b70', 'Clinica');
+	(1, 'Admin', 'admin@admin.com', NULL, NULL, NULL, '202cb962ac59075b964b07152d234b70', 'Clinica');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

@@ -38,7 +38,7 @@ router.post('/retorna_usuario', validaToken, async (req, res) => {
   }
 });
 
-router.post('/cadastra_usuario', validaToken, async (req, res) => { 
+router.post('/cadastra_usuario', async (req, res) => { 
   console.log('teste ', req.body);
   if (!req.body) {
     res.status(500).json({ error: 'Erro ao buscar usuários' });

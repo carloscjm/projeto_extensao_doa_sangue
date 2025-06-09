@@ -234,7 +234,7 @@
             };
 
             // ATENÇÃO: Altere '/usuarios' para a rota correta da sua API de cadastro
-            const response = await fetch('http://localhost:3000/demanda/pega_demanda_por_id', {
+            const response = await fetch(getApiUrl()+'/demanda/pega_demanda_por_id', {
                 method: 'POST', // Método HTTP para criar um novo recurso
                 headers: headers,
                 body: JSON.stringify(dados) // Converte o objeto JavaScript para uma string JSON
@@ -358,7 +358,7 @@
 
                 <aside class="details-right-column">
                     <div class="how-to-help">
-                        <h3><i class="fa-solid fa-hand-holding-heart"></i> Como Ajudar</h3>
+                        <h3 style="color: #3498db;"><i class="fa-solid fa-hand-holding-heart"></i> Como Ajudar</h3>
                         <ul class="info-list">
                             <li>
                                 <span class="icon"><i class="fa-solid fa-map-marker-alt"></i></span>

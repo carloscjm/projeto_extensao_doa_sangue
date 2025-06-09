@@ -11,7 +11,7 @@ router.post('/pega_demanda', validaToken, async (req, res) => {
     if (!req.body) {
       res.status(500).json({ error: 'Erro ao buscar demandas' });
     }
-    const [rows] = await pool.query('SELECT d.id as id_demanda, d.descricao, d.urgencia, d.tipo_sangue, d.descricao AS descricao_demanda, c.nome AS centro_nome, c.cidade FROM demanda d JOIN centro c ON c.id = d.centro JOIN usuario u ON u.id = d.usuario WHERE u.email = "'+req.body.usuario+'"');
+    const [rows] = await pool.query('SELECT d.id as id_demanda, d.descricao, d.urgencia, d.tipo_sangue, d.descricao AS descricao_demanda, c.nome AS centro_nome, c.cidade FROM demanda d JOIN centro c ON c.id = d.centro JOIN usuario u ON u.id = d.usuario WHERE u.id = "'+req.body.usuario+'"');
     console.log('aaaa ', rows);
     res.json(rows);
   } catch (error) {

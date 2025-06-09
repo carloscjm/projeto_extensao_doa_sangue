@@ -175,6 +175,11 @@
             border-left: 3px solid #ffc107;
             padding-left: 15px;
             margin: 20px 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 7;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* Rodapé do Card com Urgência e Botão */
@@ -231,7 +236,7 @@
             }
 
             const dados = {
-                "usuario": 'carloscjm9@gmail.com'
+                "usuario": parseFloat(localStorage.getItem('usr_id'))
             };
 
             // ATENÇÃO: Altere '/usuarios' para a rota correta da sua API de cadastro
@@ -334,53 +339,7 @@
     </div>
     <div class="container_demanda">
         <main id="demandGridContainer" class="demand-grid">
-            <div class="demand-card">
-                <div class="blood-type-banner">
-                    <i class="fa-solid fa-droplet icon"></i>
-                    <span class="type">O-</span>
-                </div>
-                <div class="card-body">
-                    <h2 class="clinic-name">Hospital Vida & Saúde</h2>
-                    <p class="location"><i class="fa-solid fa-location-dot"></i> Itajubá, MG</p>
-                    <p class="patient-info">Para paciente em cirurgia cardíaca de emergência.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="urgency-tag high">URGENTE</span>
-                    <a href="#" class="cta-button">Como Ajudar</a>
-                </div>
-            </div>
 
-            <div class="demand-card">
-                <div class="blood-type-banner">
-                    <i class="fa-solid fa-droplet icon"></i>
-                    <span class="type">A+</span>
-                </div>
-                <div class="card-body">
-                    <h2 class="clinic-name">Clínica Hemocentro Sul</h2>
-                    <p class="location"><i class="fa-solid fa-location-dot"></i> Pouso Alegre, MG</p>
-                    <p class="patient-info">Para repor o estoque destinado a tratamentos de quimioterapia.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="urgency-tag medium">ESTOQUE BAIXO</span>
-                    <a href="#" class="cta-button">Ver Detalhes</a>
-                </div>
-            </div>
-
-            <div class="demand-card">
-                <div class="blood-type-banner">
-                    <i class="fa-solid fa-droplet icon"></i>
-                    <span class="type">B+</span>
-                </div>
-                <div class="card-body">
-                    <h2 class="clinic-name">Hospital Central</h2>
-                    <p class="location"><i class="fa-solid fa-location-dot"></i> Santa Rita do Sapucaí, MG</p>
-                    <p class="patient-info">Para manutenção do banco de sangue de rotina.</p>
-                </div>
-                <div class="card-footer">
-                    <span class="urgency-tag low">NÍVEL ESTÁVEL</span>
-                    <a href="#" class="cta-button">Saber Mais</a>
-                </div>
-            </div>
         </main>
     </div>
     <script src="/assets/js/cabecalho.js" defer></script>
