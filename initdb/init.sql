@@ -35,8 +35,8 @@ CREATE TABLE IF NOT EXISTS `centro` (
 -- Copiando dados para a tabela projeto_extensao.centro: ~99 rows (aproximadamente)
 INSERT INTO `centro` (`id`, `nome`, `rua`, `numero`, `bairro`, `cidade`, `estado`, `telefone`) VALUES
 	(1, 'Hemocentro Itajuba', 'Avenida Henriqueto Cardinale', '237', 'Varginha', 'Itajuba', 'MG', '35 36223444'),
-	(2, 'Hemocentro Pouso Alegre', NULL, NULL, NULL, 'Pouso Alegre', NULL, NULL),
-	(3, 'Hemocentro Maria da Fé', NULL, NULL, NULL, 'Maria da Fé', NULL, NULL),
+	(2, 'Hemocentro Pouso Alegre', 'Av. Jandira', '344', 'Centro', 'Pouso Alegre', 'MG', '35 36223444'),
+	(3, 'Hemocentro Maria da Fé', 'Rua Marquês de Paraná', '766', 'Malvinas', 'Maria da Fé', 'MG', '35 36223444'),
 	(100, 'Fundação Pró-Sangue - Posto Clínicas', 'Av. Dr. Enéas de Carvalho Aguiar', '255', 'Cerqueira César', 'São Paulo', 'SP', '(11) 4573-7800'),
 	(101, 'Fundação Pró-Sangue - Posto Dante Pazzanese', 'Av. Dr. Dante Pazzanese', '500', 'Ibirapuera', 'São Paulo', 'SP', '(11) 4573-7800'),
 	(102, 'Fundação Pró-Sangue - Posto Mandaqui', 'Rua Voluntários da Pátria', '4227', 'Mandaqui', 'São Paulo', 'SP', '(11) 4573-7800'),
