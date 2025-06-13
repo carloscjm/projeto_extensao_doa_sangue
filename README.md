@@ -82,8 +82,8 @@ Sinta-se à vontade para abrir issues ou contribuir com melhorias, novos recurso
 
 ## 🚀 Intruções para rodar o projeto
 
-Primeiramente devera ser instalado o docker, caso use Windows, devera ter o Docker Desktop instalado.
-apos a instalação do docker, basta abrir o terminal e digitar docker-compose up --build, e esperar o docker baixar as dependencias,
+Primeiramente deverá ser instalado o docker, caso use Windows, devera ter o Docker Desktop instalado.
+Após a instalação do docker, basta abrir o terminal e digitar o comando docker-compose up --build, e esperar o docker baixar as dependencias.
 
 Apos os conteiners estarem rodando, abra a url http://localhost:3000/ no seu navegador de preferencia.
 
