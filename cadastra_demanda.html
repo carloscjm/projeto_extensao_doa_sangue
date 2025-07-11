@@ -164,7 +164,7 @@
                 // Transforma a resposta do servidor em JSON
                 const resultado = await response.json();
                 console.log('resultaaaaado',  resultado);
-
+                window.location.replace(getApiUrl()+"/demandas.html");
                 // 4. Trata a resposta do servidor
                 if (response.ok) {
                     // Se a resposta foi bem-sucedida (status 2xx)
