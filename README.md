@@ -33,7 +33,7 @@ Muitas vidas dependem da doação voluntária de sangue. Com isso em mente, este
 - JSON (para simulação de base de dados)
 - Google Fonts (Poppins)
 
----
+--- 
 
 ## 📁 Estrutura de Arquivos
 📂 projeto_extensao_doa_sangue
