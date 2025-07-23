@@ -72,7 +72,7 @@ Ano: 2025
 
 ## 🤝 Contribuições
 
-Sinta-se à vontade para abrir issues ou contribuir com melhorias, novos recursos ou ideias para expandir o projeto. Toda ajuda é bem-vinda! ❤️
+Sinta-se à vontade para  abrir issues ou contribuir com melhorias, novos recursos ou ideias para expandir o projeto. Toda ajuda é bem-vinda! ❤️
 
 ---
 
