@@ -4,7 +4,7 @@ Projeto de extensão universitária desenvolvido por estudantes da **FEPI - Cent
 
 ---
 
-## 💡 Sobre o Projeto
+## 💡 Sobre o Projeto 
 
 Muitas vidas dependem da doação voluntária de sangue. Com isso em mente, este projeto surgiu com a missão de:
 
