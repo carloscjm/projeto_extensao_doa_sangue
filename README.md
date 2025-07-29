@@ -17,7 +17,7 @@ Muitas vidas dependem da doação voluntária de sangue. Com isso em mente, este
 
 ## 🚀 Funcionalidades
 
-- ✅ Página inicial informativa com visual moderno e responsivo
+- ✅ Página inicial informativa com visual moderno e responsivo 
 - ✅ Sistema de login (validação de usuários via JSON)
 - ✅ Navegação entre seções: Início, Notícias, Quem Somos e Login
 - ✅ Rodapé fixo e cabeçalho com logotipo
@@ -72,7 +72,7 @@ Ano: 2025
 
 ## 🤝 Contribuições
 
-Sinta-se à vontade para abrir issues ou contribuir com melhorias, novos recursos ou ideias para expandir o projeto. Toda ajuda é bem-vinda! ❤️
+Sinta-se à vontade para  abrir issues ou contribuir com melhorias, novos recursos ou ideias para expandir o projeto. Toda ajuda é bem-vinda! ❤️
 
 ---
 
