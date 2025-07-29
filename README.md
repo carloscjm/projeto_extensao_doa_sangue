@@ -18,7 +18,7 @@ Muitas vidas dependem da doação voluntária de sangue. Com isso em mente, este
 ## 🚀 Funcionalidades
 
 - ✅ Página inicial informativa com visual moderno e responsivo
-- ✅ Sistema de login (validação de usuários via JSON)
+- ✅ Sistema de login (validação de usuários via JSON) 
 - ✅ Navegação entre seções: Início, Notícias, Quem Somos e Login
 - ✅ Rodapé fixo e cabeçalho com logotipo
 - ✅ Preparado para expansão futura com APIs e banco de dados
@@ -293,19 +293,3 @@ Atualizacao automatica #2
 Atualizacao automatica #3
 Atualizacao automatica #4
 Atualizacao automatica #5
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #7
-Atualizacao automatica #8
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
