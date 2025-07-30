@@ -90,3 +90,4 @@ Apos os conteiners estarem rodando, abra a url http://localhost:3000/ no seu nav
 Obs: Para teste o sistema ja vem com um usuário pre cadastrado admin@admin.com, senha 123.
 
 ---
+Atualizacao automatica #1
