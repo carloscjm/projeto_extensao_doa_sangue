@@ -25,11 +25,13 @@ app.get('/inicio', (req, res) => {
 
 // rotas da API
 const contatoRoutesUsuario = require('./routes/Usuario');
-const clienteRoutesDemanda = require('./routes/Demanda');
+const contatoRoutesPosts = require('./routes/Posts');
+const clienteRoutesEvento = require('./routes/Evento');
 const clienteRoutesLogin = require('./routes/login');
 
 app.use('/usuario', contatoRoutesUsuario);
-app.use('/demanda', clienteRoutesDemanda);
+app.use('/evento', clienteRoutesEvento);
+app.use('/posts', contatoRoutesPosts);
 app.use('/login', clienteRoutesLogin);
 
 app.listen(PORT, HOST, () => {

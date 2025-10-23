@@ -1,236 +1,67 @@
-# 🩸 Doe Sangue, Salve Vidas
+Agenda Colaborativa para Eventos Comunitários
+Este projeto é uma plataforma para que organizadores de eventos, como feiras, quermesses e pequenos comerciantes, 
+possam gerenciar e divulgar suas atividades de forma colaborativa. A aplicação permite que usuários cadastrem, editem e visualizem eventos em um calendário compartilhado.
 
-Projeto de extensão universitária desenvolvido por estudantes da **FEPI - Centro Universitário de Itajubá**, com o objetivo de **conectar pessoas dispostas a doar sangue com centros de doação da região do Sul de Minas**.
+🚀 Tecnologias Utilizadas
+O projeto foi construído utilizando as seguintes tecnologias:
 
----
+Backend: Node.js
 
-## 💡 Sobre o Projeto
+Banco de Dados: MySQL
 
-Muitas vidas dependem da doação voluntária de sangue. Com isso em mente, este projeto surgiu com a missão de:
+Mensageria: Kafka
 
-- Facilitar o acesso de doadores aos locais de coleta;
-- Divulgar a importância da doação regular;
-- Engajar a comunidade por meio da tecnologia;
-- Contribuir ativamente com a saúde pública regional.
+Cache: Redis
 
----
+Gerenciamento de Containers: Docker
 
-## 🚀 Funcionalidades
+Controle de Versão: Git
 
-- ✅ Página inicial informativa com visual moderno e responsivo 
-- ✅ Sistema de login (validação de usuários via JSON)
-- ✅ Navegação entre seções: Início, Notícias, Quem Somos e Login
-- ✅ Rodapé fixo e cabeçalho com logotipo
-- ✅ Preparado para expansão futura com APIs e banco de dados
+Metodologia: Scrum
 
----
+📦 Pré-requisitos
+Para rodar o projeto localmente, você precisa ter o Docker e o Docker Compose instalados em sua máquina.
 
-## 🛠️ Tecnologias Utilizadas
+Docker
 
-- HTML5
-- CSS3
-- JavaScript
-- JSON (para simulação de base de dados)
-- Google Fonts (Poppins)
+Docker Compose
 
---- 
+⚙️ Instalação e Execução
+Siga os passos abaixo para configurar o ambiente e iniciar a aplicação.
 
-## 📁 Estrutura de Arquivos
-📂 projeto_extensao_doa_sangue
-├── 📁 assets
-│   ├── 📁 css
-│   ├── 📁 img
-│   ├── 📁 js
-├── cadastro.html
-├── como_doar.html
-├── index.html
-├── login.html
-├── login.json
-├── noticias.html
-├── demandas.html
-└── README.md
+Clone este repositório:
 
+Bash
 
----
+git clone https://github.com/carloscjm/extencap_ads_eventos.git
+Crie um arquivo .env com base no arquivo de exemplo .env.example. Este arquivo irá conter as variáveis de ambiente necessárias para a conexão com o banco de dados e outros serviços.
 
-## 🏥 Público-Alvo
+Suba os containers da aplicação utilizando o Docker Compose:
 
-- Doadores de sangue (atuais e potenciais)
-- Centros de coleta e hemocentros do Sul de Minas
-- Comunidade em geral interessada em ações sociais
+Bash
 
----
+docker-compose up -d
+Isso irá construir as imagens e iniciar os containers do backend (Node.js), MySQL, Redis.
 
-## 👩‍🏫 Instituição
+Acesse a aplicação no seu navegador:
 
-> **FEPI - Centro Universitário de Itajubá**  
-Projeto de Extensão - Curso de Extensão
-Itajubá - Minas Gerais  
-Ano: 2025
+Backend: http://localhost:8080
 
----
+Frontend: http://localhost:3032
 
-## 🤝 Contribuições
+📚 Estrutura do Projeto
+/backend-node: Microsserviço para funcionalidades específicas, como processamento de notificações em tempo real.
 
-Sinta-se à vontade para  abrir issues ou contribuir com melhorias, novos recursos ou ideias para expandir o projeto. Toda ajuda é bem-vinda! ❤️
+/frontend: Código da interface do usuário (UI) da aplicação.
 
----
+👥 Colaboradores
+[Carlos Junior Machado]
+[Renan Silva]
+[Luana Correa]
+[Lara Otoni]
 
-> Doe sangue, doe vida. Seu gesto pode ser a esperança de alguém.  
+Faça o commit das suas alterações (git commit -m 'Adiciona nova funcionalidade').
 
+Faça o push para a branch (git push origin feature/NomeDaFuncionalidade).
 
-
-## 🚀 Intruções para rodar o projeto
-
-Primeiramente deverá ser instalado o docker, caso use Windows, devera ter o Docker Desktop instalado.
-Após a instalação do docker, basta abrir o terminal e digitar o comando docker-compose up --build, e esperar o docker baixar as dependencias.
-
-Apos os conteiners estarem rodando, abra a url http://localhost:3000/ no seu navegador de preferencia.
-
-Obs: Para teste o sistema ja vem com um usuário pre cadastrado admin@admin.com, senha 123.
-
----
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #7
-Atualizacao automatica #8
-Atualizacao automatica #9
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #1
-Atualizacao automatica #1
-Atualizacao automatica #2
- 
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #1
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #7
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #7
-Atualizacao automatica #8
-Atualizacao automatica #9
-Atualizacao automatica #10
-Atualizacao automatica #1
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #7
-Atualizacao automatica #8
-Atualizacao automatica #9
-Atualizacao automatica #10
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #7
-Atualizacao automatica #8
-Atualizacao automatica #9
-Atualizacao automatica #10
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #7
-Atualizacao automatica #8
-Atualizacao automatica #9
-Atualizacao automatica #1
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #7
-Atualizacao automatica #8
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #7
-Atualizacao automatica #8
-Atualizacao automatica #9
-Atualizacao automatica #10
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #1
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #1
-Atualizacao automatica #2
-Atualizacao automatica #3
-Atualizacao automatica #4
-Atualizacao automatica #5
-Atualizacao automatica #6
-Atualizacao automatica #7
-Atualizacao automatica #8
+Abra um pull request.
