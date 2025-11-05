@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Colaborativa - Descubra Eventos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0A0A5B; /* Azul escuro principal */
+            --secondary-blue: #1A237E; /* Azul um pouco mais claro para acentuação */
+            --light-bg: #F5F7FA; /* Fundo cinza claro */
+            --text-color: #333;
+            --white: #FFFFFF;
+            --button-primary: #FFB300; /* Amarelo/Laranja para botões de ação */
+            --button-hover: #FFA000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Header (Cabeçalho) --- */
+        .header {
+            background-color: var(--primary-blue);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid var(--secondary-blue);
+            flex-shrink: 0; /* Impede que o header encolha */
+        }
+
+        .header h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .menu-btns button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-left: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-btns .button-one { /* Entrar */
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .menu-btns .button-one:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .menu-btns .button-two { /* Criar conta */
+            background-color: var(--button-primary);
+            color: var(--primary-blue);
+        }
+
+        .menu-btns .button-two:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* --- Hero Section (Conteúdo Principal) --- */
+        .hero {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background-image: url('https://via.placeholder.com/1500x800/1A237E/FFFFFF?text=Fundo+Comunitario+Abstrato');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        /* Overlay escuro para melhorar a leitura do texto */
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 40px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero a {
+            text-decoration: none;
+        }
+
+        .hero .button-three {
+            background-color: var(--button-primary);
+            color: var(--primary-blue);
+            font-size: 1.25rem;
+            font-weight: 700;
+            padding: 15px 35px;
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .hero .button-three:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
+        }
+
+        /* --- Footer (Rodapé) --- */
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid var(--secondary-blue);
+            flex-shrink: 0; /* Garante que o footer fique no final */
+        }
+
+        .footer a {
+            color: var(--button-primary);
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="logo-agendaeventos-white.png" alt="AgendaEventos Logo" class="header-logo-img" style="width: 400px; height: 150px;">
+        <div class="menu-btns" id="bt_login">
+            <button class="button-one" onclick="window.location.href='login.html'">Entrar</button>
+            <button class="button-two" onclick="window.location.href='cadastro.html'">Criar conta</button>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Descubra o que está acontecendo perto de você!</h1>
+        <a href="events.html">
+            <button class="button-three">Explorar Eventos</button>
+        </a>
+    </div>
+
+    <footer class="footer">
+        &copy; 2025 Agenda Colaborativa para Eventos Comunitários. Todos os direitos reservados.
+        </footer>
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async function() {
+        try {
+            let jwt = localStorage.getItem('jwt');
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            if (jwt) {
+                headers.append('Authorization', `Bearer ${jwt}`);
+            } else {
+                console.warn("Nenhum token encontrado. A requisição será feita sem autenticação.");
+                // Dependendo da sua regra de negócio, você pode querer impedir a requisição aqui.
+            }
+
+            // ATENÇÃO: Altere '/usuarios' para a rota correta da sua API de cadastro
+            const response = await fetch(getApiUrl()+'/login/check_login', {
+                method: 'POST', // Método HTTP para criar um novo recurso
+                headers: headers,
+                body: JSON.stringify({}) // Converte o objeto JavaScript para uma string JSON
+            });
+
+            // Transforma a resposta do servidor em JSON
+            const resultado = await response.json();
+
+
+            console.log('resultaaaaado',  resultado);
+            if (resultado.error) {
+                window.location.href = 'login.html';
+            }
+
+        } catch (error) {
+            // Trata erros de rede (ex: API offline)
+            console.error('Erro na requisição:', error);
+            mensagemDiv.textContent = 'Erro de conexão com o servidor. Tente novamente.';
+            mensagemDiv.style.color = 'red';
+        }
+    });
+
+</script>
+
+<script src="helper.js" defer></script>
+</html>

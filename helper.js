@@ -1,0 +1,62 @@
+// Função auxiliar para obter a URL correta da API
+function getApiUrl() {
+    const hostname = window.location.hostname;
+
+    // Se o hostname for 'localhost' ou '127.0.0.1', estamos em desenvolvimento
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+        return 'http://localhost:3000'; // URL de Desenvolvimento
+    } else {
+        // Caso contrário, estamos em produção
+        // IMPORTANTE: Coloque a URL da sua API na Fly.io aqui
+        return 'http://localhost:3000'; // URL de Produção
+    }
+}
+
+// Lógica que estava dentro do cabeçalho.html
+console.log("Script do cabeçalho executado!");
+
+let logado = localStorage.getItem('jwt');
+console.log('logado: ', logado);
+    // Escuta o evento personalizado que disparamos quando o HTML do cabeçalho foi injetado
+    // document.addEventListener('cabecalhoCarregado', function() {
+        console.log('aki',logado);
+        if (logado) {
+            document.getElementById('bt_login').style.display = 'none';
+            document.getElementById('bt_sair').style.display = 'block';
+            const userButtonSair = document.getElementById('sair');
+            userButtonSair.addEventListener('click', (event) => {
+                localStorage.clear();
+                window.location.href = 'login.html';
+            });
+            
+            const userButton = document.getElementById('userMenu');
+            const userSubmenu = document.getElementById('profileSubmenu');
+
+            if (userButton && userSubmenu) {
+                userButton.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    userSubmenu.classList.toggle('active'); // Usando a classe do exemplo anterior
+                });
+                
+                // Lógica de fechar ao clicar fora, etc.
+                document.addEventListener('click', () => {
+                    if (userSubmenu.classList.contains('active')) {
+                        userSubmenu.classList.remove('active');
+                    }
+                });
+
+                userSubmenu.addEventListener('click', (event) => {
+                    localStorage.clear();
+                    window.location.reload()
+                });
+            } else {
+                console.error("Não foi possível encontrar os elementos do menu do cabeçalho.");
+            }
+        } else {
+            const userButton = document.getElementById('login_entrar');
+            const userButtonSair = document.getElementById('sair');
+            document.getElementById('bt_login').style.display = 'block';
+            document.getElementById('bt_sair').style.display = 'none';
+            window.location.href = 'login.html';
+        }
+    // });

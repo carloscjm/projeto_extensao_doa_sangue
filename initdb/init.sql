@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS `projeto_extensao`
+CREATE DATABASE IF NOT EXISTS `projeto_extensao`;
 USE projeto_extensao;
 
 CREATE TABLE usuario (
@@ -66,3 +66,7 @@ CREATE TABLE favoritos (
 
 INSERT INTO `usuario` (`id`, `nome`, `email`,  `senha`) VALUES (1, 'Admin', 'admin@admin.com', '202cb962ac59075b964b07152d234b70');
 INSERT INTO `eventos` (`id`, `titulo`, `descricao`, `data_inicio`, `data_fim`, `local`, `id_categoria`, `id_organizador`, `criado_em`, `atualizado_em`) VALUES (1, 'ssss', 'ssss', '2025-10-23 17:50:04', '2025-10-23 17:50:05', 'adsa asd as', NULL, 1, '2025-10-23 20:50:11', '2025-10-23 20:50:23');
+
+INSERT INTO `categorias` (`id_categoria`, `nome`) VALUES (1, 'Atesanato');
+INSERT INTO `categorias` (`id_categoria`, `nome`) VALUES (2, 'Feira');
+INSERT INTO `categorias` (`id_categoria`, `nome`) VALUES (3, 'Cultura');

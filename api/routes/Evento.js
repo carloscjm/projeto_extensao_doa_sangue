@@ -11,7 +11,7 @@ router.post('/pega_evento', validaToken, async (req, res) => {
     if (!req.body) {
       res.status(500).json({ error: 'Erro ao buscar demandas' });
     }
-    const [rows] = await pool.query('SELECT * FROM eventos WHERE id = "'+req.body.id_evento+'"');
+    const [rows] = await pool.query('SELECT eventos.id, `titulo`, `descricao`, `data_inicio`, `data_fim`, `local`, eventos.id_categoria, `id_organizador`, eventos.criado_em, eventos.atualizado_em, usuario.nome AS nomeUsuario, categorias.nome AS catNome FROM eventos JOIN usuario ON usuario.id = eventos.id_organizador JOIN categorias ON categorias.id_categoria = eventos.id_categoria WHERE eventos.id  = "'+req.body.id_evento+'"');
     console.log('Retorno eventos ', rows);
     res.json(rows);
   } catch (error) {
@@ -76,4 +76,17 @@ router.post('/lista_eventos_por_data', validaToken, async (req, res) => {
   } 
 });
 
+router.post('/lista_eventos', validaToken, async (req, res) => {
+  try {
+    if (!req.body) {
+      res.status(500).json({ error: 'Erro ao buscar eventos' });
+    }
+    const [rows] = await pool.query('SELECT * FROM eventos');
+    console.log('Retorno eventos ', rows);
+    res.json(rows);
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ error: 'Erro ao buscar eventos' });
+  } 
+});
 module.exports = router;

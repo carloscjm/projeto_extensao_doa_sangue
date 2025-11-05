@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Colaborativa - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0A0A5B; /* Azul escuro principal */
+            --secondary-blue: #1A237E; /* Azul um pouco mais claro para acentuação */
+            --light-bg: #F5F7FA; /* Fundo cinza claro */
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #E0E0E0;
+            --button-primary: #FFB300; /* Amarelo/Laranja para botões de ação */
+            --button-hover: #FFA000;
+            --white: #FFFFFF;
+            --error-color: #EF5350; /* Vermelho suave para links/erros */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- Header (Simulação baseada no design anterior) --- */
+        .header-simulado {
+            background-color: var(--primary-blue);
+            padding: 15px 30px;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Container Principal (Login) --- */
+        .container {
+            flex-grow: 1; /* Permite que o container ocupe o espaço restante */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .login-container {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px; /* Limita a largura do formulário */
+            text-align: center;
+        }
+
+        .login-container h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        /* --- Formulário e Inputs --- */
+        #loginForm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Espaçamento entre os campos */
+        }
+
+        #loginForm label {
+            text-align: left;
+            font-weight: 500;
+            color: var(--light-text-color);
+            margin-bottom: -5px;
+            font-size: 0.95rem;
+        }
+
+        #loginForm input[type="email"],
+        #loginForm input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--light-bg);
+        }
+
+        #loginForm input[type="email"]:focus,
+        #loginForm input[type="password"]:focus {
+            border-color: var(--primary-blue);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(10, 10, 91, 0.1);
+        }
+
+        /* --- Botão de Login --- */
+        #loginForm button[type="submit"] {
+            background-color: var(--button-primary);
+            color: var(--primary-blue);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        #loginForm button[type="submit"]:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* --- Link de Cadastro --- */
+        .login-container p {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: var(--light-text-color);
+        }
+
+        .login-container a {
+            color: var(--primary-blue); /* Usando o azul principal para o link */
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .login-container a:hover {
+            color: var(--secondary-blue);
+            text-decoration: underline;
+        }
+
+        /* --- Footer (Simulação baseada no design anterior) --- */
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0; /* Impede que o footer encolha */
+        }
+
+    </style>
+</head>
+<body>
+    
+    <header class="header-simulado">AgendaEventos</header>
+
+    <div id="cabecalho-placeholder" style="display:none;"></div> 
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // A manter a lógica de carregar o cabeçalho, mesmo que a estilização esteja simulada acima.
+            fetch('/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('cabecalho-placeholder').innerHTML = data;
+                    document.dispatchEvent(new Event('cabecalhoCarregado'));
+                });
+        });
+    </script>
+
+    <div class="container">
+        <div class="login-container">
+            <h2>Faça o login na sua conta!</h2>
+            <form id="loginForm">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" placeholder="Digite seu e-mail" required>
+                
+                <label for="password">Senha:</label>
+                <input type="password" id="password" placeholder="Digite sua senha" required>
+                
+                <button type="submit">LOGIN</button>
+            </form>
+            <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se agora</a></p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2025 - Agenda Colaborativa para Eventos Comunitários.
+    </footer>
+
+    <script >
+        // Seleciona o formulário pelo ID
+        const form = document.getElementById('loginForm');
+
+        // Adiciona um "escutador" para o evento de 'submit' (envio) do formulário
+        form.addEventListener('submit', async (event) => {
+            // 1. Previne o comportamento padrão do formulário, que é recarregar a página.
+            event.preventDefault();
+
+            // 2. Coleta os dados dos campos do formulário
+            const dados = {
+                email: document.getElementById('email').value,
+                senha: document.getElementById('password').value,
+            };
+
+            // 3. Envia os dados para a API usando fetch
+            try {
+                // ATENÇÃO: Altere '/usuarios' para a rota correta da sua API de cadastro
+                // Removido getApiUrl() para manter o script funcionalmente mais simples aqui
+                const response = await fetch(getApiUrl()+'/login/login', { 
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json' 
+                    },
+                    body: JSON.stringify(dados) 
+                });
+
+                // Transforma a resposta do servidor em JSON
+                const resultado = await response.json();
+
+
+                console.log('resultaaaaado',  resultado);
+                // 4. Trata a resposta do servidor
+                if (response.ok) {
+                    // Se a resposta foi bem-sucedida (status 2xx)
+                    localStorage.setItem('jwt', resultado.jwt);
+                    localStorage.setItem('usr_id', resultado.id_usr);
+                    localStorage.setItem('tipo', resultado.tipo);
+                    form.reset(); // Limpa o formulário
+                    window.location.href = 'events.html';
+                    // window.location.replace("/index.html"); // Uso simplificado da rota
+                } else {
+                    // Se o servidor retornou um erro (status 4xx ou 5xx)
+                    console.error('Erro de login:', resultado.message);
+                }
+
+            } catch (error) {
+                // Trata erros de rede (ex: API offline)
+                console.log('Erro na requisição:', error);
+            }
+        });
+    </script>
+    <script src="helper.js" defer></script>
+    </body>
+</html>

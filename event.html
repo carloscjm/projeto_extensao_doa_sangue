@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Evento: Grande Feira de Artesanato Local</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0A0A5B;
+            --secondary-blue: #1A237E;
+            --light-bg: #F5F7FA;
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #E0E0E0;
+            --button-primary: #FFB300;
+            --button-hover: #FFA000;
+            --white: #FFFFFF;
+            --success-color: #4CAF50; /* Cor para destaque de sucesso ou participação */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .header-search {
+            display: flex;
+            flex-grow: 1;
+            justify-content: center;
+            margin: 0 20px;
+        }
+
+        .header-search input {
+            width: 70%;
+            max-width: 600px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--text-color);
+        }
+
+        .header-search button {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-left: -50px; /* Sobrepõe para o ícone de busca */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            position: relative; /* Para o ícone ou texto de busca */
+            padding-right: 15px;
+        }
+
+        .header-search button:hover {
+            background-color: #151d6c; /* Tom mais escuro para hover */
+        }
+
+        /* Reutilização de estilos do Header e Navbar */
+        .header {
+            background-color: var(--primary-blue);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .header-actions button {
+            background-color: var(--button-primary);
+            color: var(--primary-blue);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .header-actions button:hover {
+            background-color: var(--button-hover);
+        }
+
+        .navbar {
+            background-color: var(--secondary-blue);
+            padding: 10px 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        .navbar ul li {
+            margin: 0 25px;
+        }
+
+        .navbar ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        /* Estrutura da Página de Detalhes */
+        .event-detail-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .event-header-section {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-banner {
+            width: 100%;
+            height: 400px;
+            background-color: #ccc;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            /* Exemplo de banner */
+            background-image: url('https://via.placeholder.com/1200x400/0A0A5B/FFFFFF?text=Banner+do+Evento+em+Destaque');
+        }
+
+        .event-info-main {
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .event-title-group h1 {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .event-title-group p {
+            font-size: 1rem;
+            color: var(--light-text-color);
+            margin-bottom: 20px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn-participar {
+            background-color: var(--success-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-participar:hover {
+            background-color: #45a049;
+        }
+
+        .btn-secondary {
+            background-color: var(--light-bg);
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .event-body-section {
+            display: flex;
+            gap: 30px;
+        }
+
+        .event-details-column {
+            flex: 2; /* Coluna principal ocupa mais espaço */
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .event-details-column h2 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .description-content p {
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        .organizer-info-card {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--light-bg);
+        }
+
+        .organizer-info-card h3 {
+            font-size: 1.2rem;
+            color: var(--secondary-blue);
+            margin-bottom: 10px;
+        }
+
+        .organizer-info-card p {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .quick-info-column {
+            flex: 1; /* Coluna lateral menor */
+        }
+
+        .quick-info-card {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .quick-info-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .info-item .icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 15px;
+            color: var(--secondary-blue);
+            /* Placeholder para o ícone */
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .info-item-text strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .info-item-text span {
+            font-size: 0.9rem;
+            color: var(--light-text-color);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #eee;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--light-text-color);
+            margin-top: 15px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Footer - Reutilização */
+        .footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ícones simples (usando caracteres unicode como substitutos para SVG/Font Icons) */
+        .icon-calendar::before { content: "🗓️"; }
+        .icon-clock::before { content: "⏱️"; }
+        .icon-location::before { content: "📍"; }
+        .icon-tag::before { content: "🏷️"; }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-logo">
+            <img src="logo-agendaeventos-white.png" alt="AgendaEventos Logo" class="header-logo-img" style="width: 400px; height: 150px;">
+            <!-- <span style="font-size: 1.5rem; font-weight: 700;">AgendaEventos</span> -->
+        </div>
+        <div class="header-search">
+            <input type="text" placeholder="Nome do evento, local, ou palavra-chave">
+            <button type="button">Pesquisar</button>
+        </div>
+        <div class="header-actions" id="bt_login">
+            <button id="login_entrar">Entrar</button>
+            <button style="background-color: var(--button-primary); color: var(--primary-blue);">Criar conta</button>
+        </div>
+        <div class="header-actions" id="bt_sair">
+            <button id="sair">Sair</button>
+        </div>
+    </header>
+    
+    <nav class="navbar">
+        <ul>
+            <li><a href="events.html" class="active">Início</a></li>
+            <li><a href="agenda_do_dia.html">Agenda do dia</a></li>
+            <li><a href="#">Sobre nós</a></li>
+            <li><a href="#">Contatos</a></li>
+        </ul>
+    </nav>
+
+    <main class="event-detail-container">
+        <section class="event-header-section">
+            <div class="event-banner"></div>
+            <div class="event-info-main">
+                <div class="event-title-group">
+                    <h1 id="titulo">Grande Feira de Artesanato Local</h1>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-participar">Quero Participar</button>
+                    <button class="btn-secondary">Compartilhar</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="event-body-section">
+            <div class="event-details-column">
+                <h2>Detalhes do Evento</h2>
+                <div class="description-content" id="descEvento">
+                    <p>A Grande Feira de Artesanato Local é um ponto de encontro anual para todos os moradores e visitantes que desejam apoiar o comércio e a arte local. Este ano, contaremos com mais de 50 barracas de artesãos, culinária típica, e uma programação cultural completa.</p>
+                    <p>Você encontrará desde joias artesanais e cerâmicas únicas, até roupas de tricô e objetos de decoração sustentáveis. É o lugar perfeito para encontrar presentes originais e apoiar diretamente a economia criativa da comunidade.</p>
+                    
+<p><strong>Programação especial:</strong></p>
+                    <ul>
+                        <li>10:00h - Abertura oficial e apresentação de coral.</li>
+                        <li>14:00h - Workshop de Cerâmica para iniciantes (inscrições no local).</li>
+                        <li>18:00h - Show de música ao vivo com a banda "Raízes do Morro".</li>
+                    </ul>
+                    <p>Traga a família e os amigos! A entrada é franca e o evento é pet-friendly.</p>
+                </div>
+
+                <div class="organizer-info-card">
+                    <h3 id="organizador">Organizado por: Produtor Comunitário XYZ</h3>
+                    <p>Desde 2018 promovendo a cultura e o comércio local.</p>
+                    <p>Contato: (99) 99999-9999 | Email: contato@produtorxyz.com.br</p>
+                </div>
+            </div>
+
+            <aside class="quick-info-column">
+                <div class="quick-info-card">
+                    <h3>Informações Rápidas</h3>
+
+                    <div class="info-item">
+                        <span class="icon icon-calendar"></span>
+                        <div class="info-item-text" id="dataEvento">
+                            <strong>15 de Dezembro de 2025 (Segunda)</strong>
+                            <span>Duração: 1 dia</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon icon-location"></span>
+                        <div class="info-item-text" id="local">
+                            <strong>Praça Central da Cidade</strong>
+                            <span>Rua das Flores, 123 - Centro</span>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon icon-tag"></span>
+                        <div class="info-item-text">
+                            <span id="categoria">Categoria: Artesanato, Feira, Cultura</span>
+                        </div>
+                    </div>
+
+                    <div class="map-placeholder">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.7725916327685!2d-46.65780518498871!3d-23.57813876796245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59828468767b%3A0x6b777a8b417f7b2c!2sParque%20Ibirapuera!5e0!3m2!1spt-BR!2sbr!4v1636040400000!5m2!1spt-BR!2sbr"
+                            width="100%" 
+                            height="200" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="footer">
+        &copy; 2025 Agenda Colaborativa para Eventos Comunitários. Todos os direitos reservados.
+    </footer>
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async function() {
+        try {
+            let jwt = localStorage.getItem('jwt');
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            if (jwt) {
+                headers.append('Authorization', `Bearer ${jwt}`);
+            } else {
+                console.warn("Nenhum token encontrado. A requisição será feita sem autenticação.");
+                // Dependendo da sua regra de negócio, você pode querer impedir a requisição aqui.
+            }
+
+            const dados = {
+                "id_evento": parseFloat(1)
+            };
+
+            // ATENÇÃO: Altere '/usuarios' para a rota correta da sua API de cadastro
+            const response = await fetch(getApiUrl()+'/evento/pega_evento', {
+                method: 'POST', // Método HTTP para criar um novo recurso
+                headers: headers,
+                body: JSON.stringify(dados) // Converte o objeto JavaScript para uma string JSON
+            });
+
+            // Transforma a resposta do servidor em JSON
+            const resultado = await response.json();
+
+
+            console.log('resultaaaaado',  resultado);
+            
+            // Ajusta o nome do hemocentro
+            const tituloEvento = document.getElementById('titulo');
+            tituloEvento.textContent = '';
+            tituloEvento.textContent = resultado[0].titulo;
+
+            // Ajusta o nome do hemocentro
+            const descricaoEvento = document.getElementById('descEvento');
+            descricaoEvento.innerHTML = '';
+            descricaoEvento.innerHTML = resultado[0].descricao;
+
+            // Ajusta o nome do hemocentro
+            const organizador = document.getElementById('organizador');
+            organizador.innerHTML = '';
+            organizador.innerHTML = "Organizado por: "+resultado[0].nomeUsuario;
+
+            // Ajusta o nome do hemocentro
+            const dataEvento = document.getElementById('dataEvento');
+            dataEvento.innerHTML = '';
+            dataEvento.innerHTML = formatarTimestampCompleto(resultado[0].data_inicio);
+
+            // Ajusta o nome do hemocentro
+            const local = document.getElementById('local');
+            local.innerHTML = '';
+            local.innerHTML = resultado[0].local;
+
+            // Ajusta o nome do hemocentro
+            const categoria = document.getElementById('categoria');
+            categoria.innerHTML = '';
+            categoria.innerHTML = 'Categoria: '+resultado[0].catNome;
+
+        } catch (error) {
+            // Trata erros de rede (ex: API offline)
+            console.error('Erro na requisição:', error);
+        }
+    });
+
+    function formatarTimestampCompleto(timestampString) {
+        // 1. Cria o objeto Date. O JS lida automaticamente com o fuso horário (Z = UTC)
+        // e o converte para o fuso horário local do usuário (BRT/BRST no seu caso).
+        const data = new Date(timestampString);
+
+        // 2. Define as opções de formatação para incluir data, hora e fuso horário
+        const opcoes = {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',      // Hora (ex: 14)
+            minute: '2-digit',    // Minuto (ex: 50)
+            second: '2-digit',    // Segundo (ex: 05)
+            timeZoneName: 'short' // Nome curto do fuso horário (ex: BRT)
+        };
+
+        // 3. Formata a data para o local 'pt-BR' (Português do Brasil)
+        const dataFormatada = new Intl.DateTimeFormat('pt-BR', opcoes).format(data);
+
+        // 4. Retorna a string formatada
+        // Exemplo de saída: "quinta-feira, 23 de outubro de 2025 14:50:05 BRT"
+        
+        // Opcional: Capitalizar a primeira letra para melhor apresentação
+        return dataFormatada.charAt(0).toUpperCase() + dataFormatada.slice(1);
+    }
+    // Saída: "15 de Dezembro de 2025 (Segunda)"
+
+    // Você usaria assim na sua página de detalhes:
+    // const dataDoEvento = resultado[0].data_inicio;
+    // document.getElementById('data-do-evento').textContent = formatarDataCompleta(dataDoEvento);
+
+</script>
+<script src="helper.js" defer></script>
+</html>
